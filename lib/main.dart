@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
-import 'home.dart'; 
+import 'package:firebase_core/firebase_core.dart';
+// import 'firebase_options.dart';
+// import  'firebase'
+//import 'home.dart';
+import 'login.dart';
 
-void main() {
-  runApp(const MyApp());
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
+
+// void main() {
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,8 +28,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(), 
+      //  home: HomePage(),
+      home: Login(),
     );
   }
 }
-
